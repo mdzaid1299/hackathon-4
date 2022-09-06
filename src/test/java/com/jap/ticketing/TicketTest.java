@@ -35,7 +35,6 @@ public class TicketTest {
     }
     @Test
     public void sortDistanceinDecendingOrder(){
-
         List<BusRoute> output = implement.readFile(fileName);
         assertEquals(49.3,implement.sortDistance(output).get(0).getTravelled_KM(),0);
     }
