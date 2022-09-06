@@ -35,10 +35,14 @@ public class TicketImpl {
         return busRoutes;
     }
 
-    public List<BusRoute> sortDistance(List<BusRoute> ticketDistance, Distance distance) {
-        Collections.sort(ticketDistance, new Distance());
-        return ticketDistance;
+
+    public List<BusRoute> sortDistance(List<BusRoute> tickitDist){
+        //lambda expression
+        Comparator<BusRoute> busRouteComparator = (o1,o2) -> (int) (o2.getTravelled_KM() - o1.getTravelled_KM());
+        tickitDist.sort(busRouteComparator);
+        return tickitDist;
     }
+
 
     public int calculateTotalCollections(List<BusRoute> price_of_ticket) {
         Iterator<BusRoute> iterator = price_of_ticket.iterator();
@@ -61,7 +65,7 @@ public class TicketImpl {
         int output = ticket.calculateTotalCollections(routeList);
         System.out.println("output = " + output);
         System.out.println("===================================================");
-        ticket.sortDistance(routeList, new Distance());
+        ticket.sortDistance(routeList);
         for (BusRoute value : routeList) {
             System.out.println(value);
         }
